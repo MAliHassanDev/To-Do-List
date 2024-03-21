@@ -1,0 +1,373 @@
+@font-face {
+  font-family: abode;
+  src: url('font/AGaramond-Regular.otf');
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  font-family: "Kalam", cursive;
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: #65B8D8;
+  display: flex; 
+  justify-content: space-around;
+  padding-top: 4%;
+  position: relative;
+  overflow: hidden;
+}
+main{
+  position: relative;
+  height: 84vh;
+}
+:root{
+  --main-font:"Roboto", sans-serif;
+}
+#main-body{
+  height: 100%;
+  width: 60rem;
+  margin-right: auto;
+  background-color: #F2F0CE;
+  /* background-color: red; */
+  border-radius: 3px;
+  box-shadow: 5px 5px 2px 0px rgba(0, 0, 0, 0.397);
+  overflow-x: hidden;
+  z-index: 10;
+  padding-top: 7.5%;
+  position: relative;
+}
+#main-body::-webkit-scrollbar{
+  width: 0px;
+}
+#header{
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  padding: 6.5rem 0rem 2.5rem 0rem;
+  background-color: #F2F0CE;
+}
+#header img{
+  width: 100px;
+}
+#header h1{
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 4rem;
+  letter-spacing: 2px;
+  font-weight: 400;
+  color: #4f5042;
+}
+
+#punchHolesContainer{
+  position: absolute;
+  top:0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px 20px 5px 20px;
+  z-index: 12;
+  background-color: #F2F0CE;
+}
+.punchHole{
+  height: 27px;
+  width: 27px;
+  border-radius: 50%;
+  position: relative;
+  background-color: #65B8D8;
+  box-shadow: inset 4.2px 1px 0px 0px rgba(0, 0, 0, 0.247);
+}
+.punchHole::before{
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  left: .9rem;
+  width: 9px;
+  height: 16px;
+  background-color: #65B8D8;
+  box-shadow: inset 4.5px 0px 0px 0px rgba(0, 0, 0, 0.225);
+}
+
+.line-image{
+  position: absolute;
+  top: 10%;
+  left: 10px;
+  z-index: 200;
+  
+}
+.line-image img{
+  width: 35%;
+  transform: rotate(23deg);
+  opacity: 0.6;
+}
+
+.currentDate{
+  position: absolute;
+  top: 15%;
+  right: 15px;
+  z-index: 100;
+  font-family: abode;
+  font-size: 2.3rem;
+  border-bottom: .5px solid #593C2C;
+  font-weight: 500;
+  width: 135px;
+  height: 30px;
+}
+.calender-img{
+  position: absolute;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background-image: url('img/calendar.png');
+  background-size: cover;
+}
+.date-text{
+  font-size:1.8rem;
+  font-family: "Kalam", cursive;
+  padding-left: 35px;
+}
+#taskList{
+  margin-left: 9.3rem;
+  width: 76%;
+  padding-top: 25px;
+}
+#taskList  li{
+  list-style:none;
+  border-bottom: 2px dotted #ABA889;
+  font-size: 2.3rem;
+  padding-left: 14px;
+  padding-top: 2px;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.1s linear;
+  text-wrap: wrap;
+  word-wrap: break-word;
+  width: 100%;
+  padding-right: 20px;
+}
+/* #taskList li::before{
+  content: '4.';
+  margin-right: 15px;
+} */
+#taskList .taskComplete{
+  position: absolute;
+  left: -4.5rem;
+  top:35%;
+  cursor: pointer;
+  border: 1.9px dotted black;
+  height: 27px;
+  width: 27px;
+}
+
+#taskList .taskComplete::before{
+  content: '✓';
+  position: absolute;
+  bottom: -8px;;
+  left: 4px;
+  opacity: 0;
+}
+#taskList p:hover{
+  color: red;
+  transform: scale(1.1);
+}
+#taskList p{
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 2.7rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+/* #taskList li abbr{
+  display: inline-block;
+  position: absolute;
+  top: 12px;
+  left: -3px;
+  height: 15px;
+  width: 15px;
+  background-image: url('img/calendar.png');
+  background-size: contain;
+  cursor: pointer;
+}
+#taskList li abbr .date{
+  content: attr(title);
+  position: absolute;
+  top: -35px;
+  left: 3px;
+  min-width: fit-content;
+  height: 27px;
+  white-space: nowrap;
+  font-family: abode;
+  background-color: #4f5042;
+  color: #f2f0ce;
+  font-size: 1.7rem;
+  padding: 4px 8px;
+  padding-right: 9px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+
+#taskList li abbr:hover .date{
+  opacity: 1;
+} */
+/* completed task Section */
+#taskList .completed{
+  text-decoration: line-through;
+}
+#taskList .completed .taskComplete{
+  color: rgb(30, 175, 30);
+}
+#taskList .completed .taskComplete::before{
+  opacity: 1;
+}
+
+/* Add Task Section */
+#addTask{
+  background-color: rgb(241, 241, 241);
+  height: fit-content;
+  padding: 2rem 3rem 3rem 3rem;
+  border-radius: 20px;
+  position: relative;
+}
+#addTask h2{
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+.feather-img{
+  position:absolute;
+  width: 5.5rem;
+  top: 7px;
+  left: 10%;
+}
+.addTaskInput{
+  display: flex;
+  align-items: center;
+}
+.addTaskInput input{
+  width: 40rem;
+  height: 6rem;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background-color: #C3A27F;
+  border: none;
+  font-size: 2.6rem;
+  padding:0rem 2.7rem;
+
+}
+.addTaskInput input:focus{
+  outline: none;
+}
+#addTaskButton{
+  margin-left: -25px;
+  height: 6rem;
+  padding: 0 4.4rem;
+  font-size: 2.5rem;
+  font-family: var(--main-font);
+  border-radius: 30px;
+  border:none;
+  background-color:#593C2C;
+  color: white;
+  cursor: pointer;
+}
+
+.manage-tasks{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 85vh;
+  padding-bottom: 6rem;
+}
+.deleted-tasksContainer{
+  max-width: 380px;
+  height: 380px;
+  background-color: #FEC5CF;
+  margin: auto;
+  border-radius: 3px;
+  transform: rotate(-7deg);
+  position: relative;
+  box-shadow: -7px 7px 3px rgba(0, 0, 0, 0.151);
+  z-index: 100;
+  padding: 20px;
+  overflow-y: auto;
+}
+.deleted-tasksContainer h3{
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.pushPin_img{
+  position: absolute;
+  width: 5rem;
+  right: 10px;
+  top: 5px;
+  z-index: 100;
+  
+}
+
+.deleted-tasksContainer::-webkit-scrollbar{
+  width: 0px;
+}
+.deletedTask-List {
+  list-style-type:decimal;
+  font-size: 2.4rem;
+  padding: 5px 5px 0px 25px;
+}
+.deletedTask-List li span{
+  display: none;
+}
+.deletedTask-List li{
+  position: relative;
+  word-wrap: break-word;
+  padding-right: 48px;
+}
+.deletedTask-List li p{
+  display: inline-block;
+  position: absolute;
+  right: 25px;
+  top: 0;
+  font-size: 2.7rem;
+  cursor: pointer;
+}
+.deletedTask-List li .permanentDeleteButton{
+  display: inline-block;
+  position: absolute;
+  right: -6px;
+  top: 0;
+  font-size: 2.7rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.taskdeleted{
+  display:  none;
+}
+/* images on body */
+
+
+.plant-img{
+  bottom: -7.5rem;
+  right: -17rem;
+  position: absolute;
+}
+.plant-img img{
+  width: 50rem;
+}
+.rose-img{
+  position: absolute;
+  top:-1rem;
+  left:-1rem;
+}
+.rose-img img{
+  width: 26rem;
+}
