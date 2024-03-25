@@ -1,6 +1,6 @@
 @font-face {
   font-family: abode;
-  src: url('font/AGaramond-Regular.otf');
+  src: url('../font/AGaramond-Regular.otf');
 }
 *{
   padding: 0;
@@ -14,26 +14,32 @@ html{
 
 body{
   font-family: "Kalam", cursive;
-  min-height: 100vh;
-  max-width: 100vw;
+  height: 100vh;
   background-color: #65B8D8;
   display: flex; 
-  justify-content: space-around;
-  padding-top: 4%;
+  justify-content: center;
+  align-items: center;
   position: relative;
   overflow: hidden;
 }
 main{
   position: relative;
-  height: 84vh;
+  display: flex;
+  justify-content: center;
+  gap: 12%;
+  margin: 0 4rem;
+  max-width: 1400px;
+  height: 80rem;
+  margin: 0 auto;
+  transform: translateX(6rem);
+  z-index: 100;
 }
 :root{
   --main-font:"Roboto", sans-serif;
 }
 #main-body{
   height: 100%;
-  width: 60rem;
-  margin-right: auto;
+  min-width: 60rem;
   background-color: #F2F0CE;
   /* background-color: red; */
   border-radius: 3px;
@@ -42,6 +48,7 @@ main{
   z-index: 10;
   padding-top: 7.5%;
   position: relative;
+  
 }
 #main-body::-webkit-scrollbar{
   width: 0px;
@@ -51,7 +58,7 @@ main{
   width: 100%;
   top: 0;
   z-index: 10;
-  padding: 6.5rem 0rem 2.5rem 0rem;
+  padding: 3rem 0rem 2.5rem 0rem;
   background-color: #F2F0CE;
 }
 #header img{
@@ -78,22 +85,22 @@ main{
   background-color: #F2F0CE;
 }
 .punchHole{
-  height: 27px;
-  width: 27px;
+  height: 2.7rem;
+  width: 2.7rem;
   border-radius: 50%;
   position: relative;
   background-color: #65B8D8;
-  box-shadow: inset 4.2px 1px 0px 0px rgba(0, 0, 0, 0.247);
+  box-shadow: inset .4rem 1px 0px 0px rgba(0, 0, 0, 0.247);
 }
 .punchHole::before{
   content: '';
   position: absolute;
   top: -1.5rem;
   left: .9rem;
-  width: 9px;
-  height: 16px;
+  width: .9rem;
+  height: 1.6rem;
   background-color: #65B8D8;
-  box-shadow: inset 4.5px 0px 0px 0px rgba(0, 0, 0, 0.225);
+  box-shadow: inset .4rem 0px 0px 0px rgba(0, 0, 0, 0.225);
 }
 
 .line-image{
@@ -104,7 +111,7 @@ main{
   
 }
 .line-image img{
-  width: 35%;
+  width: 17rem;
   transform: rotate(23deg);
   opacity: 0.6;
 }
@@ -118,7 +125,7 @@ main{
   font-size: 2.3rem;
   border-bottom: .5px solid #593C2C;
   font-weight: 500;
-  width: 135px;
+  width: 13.5rem;
   height: 30px;
 }
 .calender-img{
@@ -126,25 +133,25 @@ main{
   left: 0;
   width: 25px;
   height: 25px;
-  background-image: url('img/calendar.png');
+  background-image: url('../img/calendar.png');
   background-size: cover;
 }
 .date-text{
-  font-size:1.8rem;
+  font-size:2rem;
   font-family: "Kalam", cursive;
-  padding-left: 35px;
+  padding-left: 3.5rem;
 }
-#taskList{
+.activeTask_Container{
   margin-left: 9.3rem;
   width: 76%;
   padding-top: 25px;
 }
-#taskList  li{
+.activeTask_Container  .activeTask{
   list-style:none;
   border-bottom: 2px dotted #ABA889;
   font-size: 2.3rem;
   padding-left: 14px;
-  padding-top: 2px;
+  padding-top: 4px;
   text-decoration: none;
   position: relative;
   transition: transform 0.1s linear;
@@ -153,82 +160,52 @@ main{
   width: 100%;
   padding-right: 20px;
 }
-/* #taskList li::before{
+/* .activeTask_Container li::before{
   content: '4.';
   margin-right: 15px;
 } */
-#taskList .taskComplete{
+.activeTask_Container .taskCompleteCheckBox{
   position: absolute;
   left: -4.5rem;
   top:35%;
   cursor: pointer;
   border: 1.9px dotted black;
-  height: 27px;
-  width: 27px;
+  height: 2.7rem;
+  width: 2.7rem;
 }
 
-#taskList .taskComplete::before{
+.activeTask_Container .taskCompleteCheckBox::before{
   content: '✓';
   position: absolute;
   bottom: -8px;;
   left: 4px;
   opacity: 0;
 }
-#taskList p:hover{
-  color: red;
-  transform: scale(1.1);
-}
-#taskList p{
+
+.activeTask_Container .moveTaskTORecycleBin{
   display: inline-block;
   position: absolute;
   right: 0;
-  top: 0;
-  font-size: 2.7rem;
+  bottom:7px;
+  height: 2.3rem;
+  width: 2.3rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-}
-/* #taskList li abbr{
-  display: inline-block;
-  position: absolute;
-  top: 12px;
-  left: -3px;
-  height: 15px;
-  width: 15px;
-  background-image: url('img/calendar.png');
+  transition: transform 0.25s ease;
+  background-image: url('../img/trash-bin.png');
   background-size: contain;
-  cursor: pointer;
-}
-#taskList li abbr .date{
-  content: attr(title);
-  position: absolute;
-  top: -35px;
-  left: 3px;
-  min-width: fit-content;
-  height: 27px;
-  white-space: nowrap;
-  font-family: abode;
-  background-color: #4f5042;
-  color: #f2f0ce;
-  font-size: 1.7rem;
-  padding: 4px 8px;
-  padding-right: 9px;
-  border-radius: 4px;
-  opacity: 0;
-  transition: opacity .4s ease;
-  pointer-events: none;
 }
 
-#taskList li abbr:hover .date{
-  opacity: 1;
-} */
+.activeTask_Container .moveTaskTORecycleBin:hover{
+  transform: scale(1.1);
+}
 /* completed task Section */
-#taskList .completed{
+.activeTask_Container .taskCompleted{
   text-decoration: line-through;
 }
-#taskList .completed .taskComplete{
+.activeTask_Container .taskCompleted .taskCompleteCheckBox{
   color: rgb(30, 175, 30);
 }
-#taskList .completed .taskComplete::before{
+.activeTask_Container .taskCompleted .taskCompleteCheckBox::before{
   opacity: 1;
 }
 
@@ -286,23 +263,42 @@ main{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 85vh;
   padding-bottom: 6rem;
 }
-.deleted-tasksContainer{
-  max-width: 380px;
-  height: 380px;
+.recycle-wrapper{
+  position: relative;
+  
+}
+.recycle-tasksContainer{
+  max-width: 38rem;
+  height: 38rem;
   background-color: #FEC5CF;
   margin: auto;
   border-radius: 3px;
   transform: rotate(-7deg);
-  position: relative;
   box-shadow: -7px 7px 3px rgba(0, 0, 0, 0.151);
   z-index: 100;
-  padding: 20px;
   overflow-y: auto;
 }
-.deleted-tasksContainer h3{
+.recycleTask_heading{
+  display: flex;
+  width: 100%;
+  gap: 15%;
+  padding: 2rem 0 1.5rem 0;
+  position: sticky;
+  z-index: 300;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #FEC5CF;
+}
+.recycleTask_heading img{
+  width: 3rem;
+  height: 3rem;
+  opacity: .9;
+  margin-left: 30px;
+}
+.recycleTask_heading h3{
   font-size: 2.5rem;
   text-align: center;
 }
@@ -310,44 +306,56 @@ main{
 .pushPin_img{
   position: absolute;
   width: 5rem;
-  right: 10px;
-  top: 5px;
+  right: 120px;
+  top: -15px;
   z-index: 100;
   
 }
 
-.deleted-tasksContainer::-webkit-scrollbar{
+.recycle-tasksContainer::-webkit-scrollbar{
   width: 0px;
 }
-.deletedTask-List {
+.recycleTask_Container {
   list-style-type:decimal;
   font-size: 2.4rem;
-  padding: 5px 5px 0px 25px;
+  padding: 5px 25px 0px 45px;
 }
-.deletedTask-List li span{
-  display: none;
-}
-.deletedTask-List li{
+.recycleTask_Container .restoreableTask{
   position: relative;
   word-wrap: break-word;
   padding-right: 48px;
 }
-.deletedTask-List li p{
+.recycleTask_Container .restoreableTask .restoreTaskBtn{
   display: inline-block;
   position: absolute;
-  right: 25px;
-  top: 0;
-  font-size: 2.7rem;
+  right: 27px;
+  top: 3px;
+  height: 2.4rem;
+  width: 2.4rem;
   cursor: pointer;
+  background-image: url('../img/recycle-energy.png');
+  background-size: contain;
+  transition: transform 0.25s ease;
 }
-.deletedTask-List li .permanentDeleteButton{
-  display: inline-block;
+
+.restoreTaskBtn:hover{
+  transform: scale(1.1);
+}
+
+.recycleTask_Container li .deleteTaskBtn{
   position: absolute;
   right: -6px;
   top: 0;
   font-size: 2.7rem;
+  height: 2.4rem;
+  width: 2.4rem;
   cursor: pointer;
-  font-weight: bold;
+  background-image: url('../img/dust-bin.png');
+  background-size: contain;
+  transition: transform 0.25s ease;
+}
+.deleteTaskBtn:hover{
+  transform: scale(1.1)
 }
 .taskdeleted{
   display:  none;
@@ -356,12 +364,12 @@ main{
 
 
 .plant-img{
-  bottom: -7.5rem;
-  right: -17rem;
+  bottom: -44px;
+  right: -64px;
   position: absolute;
 }
 .plant-img img{
-  width: 50rem;
+  width: 30rem;
 }
 .rose-img{
   position: absolute;
@@ -370,4 +378,124 @@ main{
 }
 .rose-img img{
   width: 26rem;
+}
+
+
+
+@media screen and (max-width: 1600px){
+  html{
+    font-size: 56%;
+  }
+  .plant-img img{
+   width: 25rem;
+  }
+  .rose-img img{
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width: 1400px){
+  html{
+    font-size: 53%;
+  }
+  .plant-img img{
+    width: 19rem;
+   }
+   .rose-img img{
+     width: 16rem;
+   }
+   main{
+    gap: 8%;
+    transform: translateX(3rem);
+  }
+}
+
+@media screen and (max-width: 1200px){
+  html{
+    font-size: 50%;
+  }
+  main{
+    gap: 6%;
+    transform: translateX(2rem);
+  }
+}
+@media screen and (max-width: 1100px){
+  html{
+    font-size: 44%;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  main{
+    flex-direction: column-reverse;
+    gap: 0;
+    margin: 5rem auto 0rem auto;
+    height: 85%;
+  }
+  .recycle-tasksContainer{
+    position: absolute;
+    left: -30rem;
+    display: none;
+  }
+  body{
+    align-items: flex-start;
+  }
+  .addTaskInput{
+    justify-content: center;
+  }
+  .pushPin_img{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px){
+  html{
+    font-size: 35%;
+  }
+  main{
+    transform:translateX(3.5rem);
+  }
+  .plant-img{
+    bottom: -94px;
+  }
+  .plant-img img{
+    width: 15rem;
+  }
+  .rose-img img{
+    width: 13rem;
+  }
+  #header{
+    padding: 30px
+  }
+  .currentDate{
+    top: 11.5%;
+    height: 20px;
+    width: 11.5rem;
+  }
+  .calender-img{
+    width: 14px;
+    height: 14px;
+  }
+  #punchHolesContainer{
+    top: -8px;
+  }
+  .line-image img{
+    width: 15rem;
+  }
+}
+
+
+@media screen and (max-width: 400px){
+  html{
+    font-size: 30%;
+  }
+  .plant-img{
+    bottom: -150px;
+  }
+  main{
+    transform:translateX(.5rem);
+  }
+  .rose-img img{
+    width: 11rem;
+  }
 }
