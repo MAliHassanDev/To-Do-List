@@ -1,12 +1,12 @@
-import {checkStorage} from './src/modules/checkStorage.js';
-import { createObjectForActiveTask ,changeTaskObjectToRecyle,addClassTOTaskObject} from './src/modules/createTaskObject.js';
-import { currentDate } from './src/modules/generateCurrentDate.js';
-import { manageStorage} from './src/modules/localStorageManager.js';
-import { populateAllTaskSet,removeFromAllTaskSet } from './src/modules/updateAllTaskSet.js';
-import { generateAndDisplayTasksUi } from './src/modules/generateAndDisplaytasks.js';
-import { DOMmodifier} from './src/modules/changeDOM.js';
+import {checkStorage} from './modules/checkStorage.js';
+import { createObjectForActiveTask ,changeTaskObjectToRecyle,addClassTOTaskObject} from './modules/createTaskObject.js';
+import { currentDate } from './modules/generateCurrentDate.js';
+import { manageStorage} from './modules/localStorageManager.js';
+import { populateAllTaskSet,removeFromAllTaskSet } from './modules/updateAllTaskSet.js';
+import { generateAndDisplayTasksUi } from './modules/generateAndDisplaytasks.js';
+import { DOMmodifier} from './modules/changeDOM.js';
 import { addTaskBtn,taskInputfield,addTaskBtnClass,deleteTaskBtnClass,recycleTaskBtnClass,
-  activeTaskClass,restoreTaskBtnClass,completeTaskBtnClass,taskCompleted,restorableTaskClass,displayDate} from './src/modules/variables.js';
+  activeTaskClass,restoreTaskBtnClass,completeTaskBtnClass,taskCompleted,restorableTaskClass,displayDate} from './modules/variables.js';
 
 
 
