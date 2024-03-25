@@ -490,7 +490,11 @@ main{
     font-size: 30%;
   }
   .plant-img{
-    bottom: -150px;
+    bottom: -5px;
+    right: -20px;
+  }
+  .plant-img img{
+    width: 14rem;
   }
   main{
     transform:translateX(.5rem);
