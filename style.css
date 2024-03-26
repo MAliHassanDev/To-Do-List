@@ -38,13 +38,13 @@ main{
   gap: 12%;
   margin: 0 auto;
   max-width: 1400px;
-  height: 80rem;
+  height: 83.5%;
   margin: 0 auto;
   z-index: 100;
 }
 
 #main-body{
-  height: 100%;
+  height: 97%;
   min-width: 60rem;
   background-color: #F2F0CE;
   /* background-color: red; */
@@ -283,7 +283,7 @@ main{
 }
 .trash_icon{
   position: absolute;
-  bottom: -20rem;
+  bottom: -15rem;
   right: 6px;
   z-index: 200;
   cursor: pointer;
@@ -467,9 +467,8 @@ main{
 @media screen and (max-width: 1000px){
   main{
     flex-direction: column-reverse;
-    gap: 4%;
-    margin: 8rem auto 0rem auto;
-    height: 106rem;
+    gap: 0%;
+    margin: 5rem auto 0rem auto;
   }
   .line-image img{
     max-width: 3rem;
@@ -483,7 +482,7 @@ main{
     z-index: 100;
     left: 57%;
     transform: translateY(90%) scale(0);
-    transition: all .6s ease-out;
+    transition: all .5s ease-out;
   }
   
   .showRecycleBin{
@@ -507,7 +506,7 @@ main{
     display: none;
   }
   #punchHolesContainer{
-    top: -7px;
+    top: -8px;
   }
   .punchHole{
     box-shadow: inset .4rem 0px 0px 0px rgba(0, 0, 0, 0.247);
@@ -546,7 +545,7 @@ main{
     height: 14px;
   }
   #punchHolesContainer{
-    top: -6px;
+    top: -8px;
   }
   .activeTask_Container .taskCompleteCheckBox::before{
     top: 43%;
@@ -573,7 +572,7 @@ main{
     min-width: 250px;
   }
   #header{
-    padding: 10rem 15px 2.5rem 15px;
+    padding: 10rem 15px 4rem 15px;
   }
 }
 

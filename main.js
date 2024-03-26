@@ -51,14 +51,18 @@ const Main = (function(){
     allActiveTasks.forEach(task => addEventListener(task))
     allRestoreableTasks.forEach(task => addEventListener(task))
   }
-
-
+  
 
   // addEventListeners to all action buttons 
-  function addEventListener(task){
-    task.addEventListener('click', (e)=> assignFunctionBasedOnClickedElement(e.target));
-    task.addEventListener('mouseenter', (e)=> displayTaskDate(task));
-    task.addEventListener('mouseleave', (e)=> hideTaskDate(task));
+  function addEventListener(element){
+    if(element === DOMElement.recycleBinIcon){
+      element.addEventListener('click',(e)=> DOMElement.toggleClass(DOMElement.recyleConWrapper,DOMElement.showRecycleBinClass));
+      return;
+    }
+
+    element.addEventListener('click', (e)=> assignFunctionBasedOnClickedElement(e.target));
+    element.addEventListener('mouseenter', (e)=> displayTaskDate(element));
+    element.addEventListener('mouseleave', (e)=> hideTaskDate(element));
   }
 
 
@@ -66,7 +70,7 @@ const Main = (function(){
 
     let elementClass = clickedElement.className;
     let parentElement = clickedElement.parentElement;
-
+  
     switch(elementClass){
 
       case DOMElement.addTaskBtnClass:
@@ -193,15 +197,10 @@ document.addEventListener('DOMContentLoaded',(e)=>{
   Main.updateTaskListFromStorage();
   Main.renderTasksFromStorage();
   Main.addEventListener(DOMElement.addTaskBtn);
+  Main.addEventListener(DOMElement.recycleBinIcon)
   Main.updateAllNodesList();
   Main.addEventListenerToallAvailableTasks();
 })
 
 
 
-
-DOMElement.recycleBinIcon.addEventListener('click', (e)=>{
-  
-  DOMElement.recyleConWrapper.classList.toggle('showRecycleBin')
-  console.log('click')
-})

@@ -12,6 +12,7 @@ const DOMElement = {
   taskCompleted: 'taskCompleted',
   activeTaskClass: 'activeTask',
   restorableTaskClass: 'restoreableTask',
+  showRecycleBinClass: 'showRecycleBin',
 
 
   removeElementFromDOM(parentElement,childElement){
@@ -34,8 +35,12 @@ const DOMElement = {
 
   removeContentFromELement(element){
     element.textContent = '';
-  }
+  },
 
+  toggleClass(element,className){
+    console.log('clicked')
+    element.classList.toggle(className);
+  }
 }
 
 export{DOMElement};
