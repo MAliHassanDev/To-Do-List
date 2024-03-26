@@ -52,7 +52,6 @@ main{
   box-shadow: 5px 5px 2px 0px var(--shadow-clr);
   overflow-x: hidden;
   z-index: 10;
-  padding-top: 7.5%;
   position: relative;
   
 }
@@ -64,14 +63,16 @@ main{
   width: 100%;
   top: 0;
   z-index: 10;
-  padding: 3rem 0rem 2.5rem 0rem;
+  padding: 10rem 20px 2.5rem 20px;
   background-color: #F2F0CE;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 #header img{
   width: 100px;
 }
 #header h1{
-  text-align: center;
   font-family: "Roboto", sans-serif;
   font-size: 4rem;
   letter-spacing: 2px;
@@ -82,6 +83,7 @@ main{
 #punchHolesContainer{
   position: absolute;
   top:0;
+  left: 0;
   display: flex;
   width: 100%;
   align-items: center;
@@ -108,31 +110,24 @@ main{
   background-color: #65B8D8;
   box-shadow: inset .4rem 0px 0px 0px rgba(0, 0, 0, 0.225);
 }
-
 .line-image{
-  position: absolute;
-  top: 10%;
-  left: 10px;
-  z-index: 200;
-  
+  margin-right: .5rem;
 }
+
 .line-image img{
-  width: 17rem;
+  min-width: 12rem;
   transform: rotate(23deg);
   opacity: 0.6;
 }
 
 .currentDate{
-  position: absolute;
-  top: 15.5%;
-  right: 15px;
-  z-index: 100;
   font-family: abode;
   font-size: 2.3rem;
   border-bottom: .5px solid #593C2C;
   font-weight: 500;
   width: 13.5rem;
   height: 30px;
+  position: relative;
 }
 .calender-img{
   position: absolute;
@@ -284,17 +279,20 @@ main{
 /* deleted task section  */
 .recycle-wrapper{
   position: relative;
-  
+ 
 }
 .trash_icon{
   position: absolute;
   bottom: -20rem;
-  right: 5px;
+  right: 6px;
   z-index: 200;
+  cursor: pointer;
+  display: none;
 }
 .trash_icon img{
   width: 12rem;
 }
+
 .recycle-tasksContainer{
   max-width: 38rem;
   height: 38rem;
@@ -354,7 +352,7 @@ main{
 .recycleTask_Container .restoreableTask .restoreTaskBtn{
   display: inline-block;
   position: absolute;
-  right: 2.7rem;
+  right: 2.8rem;
   top: 3px;
   height: 2.4rem;
   width: 2.4rem;
@@ -469,20 +467,33 @@ main{
 @media screen and (max-width: 1000px){
   main{
     flex-direction: column-reverse;
-    gap: 5%;
+    gap: 4%;
     margin: 8rem auto 0rem auto;
-    height: 107rem;
+    height: 106rem;
+  }
+  .line-image img{
+    max-width: 3rem;
+  }
+  .trash_icon{
+    display: block;
   }
   .recycle-wrapper{
     position: absolute;
     bottom: 2rem;
     z-index: 100;
-    left: 28%;
-
+    left: 57%;
+    transform: translateY(90%) scale(0);
+    transition: all .6s ease-out;
+  }
+  
+  .showRecycleBin{
+    transform: translateY(0%) scale(1);
+    left: 27%;
   }
   .recycle-tasksContainer{
-    min-width: 296px;
+    min-width: 295px;
     transform: rotate(0deg);
+    box-shadow: 7px 7px 3px var(--shadow-clr);
   }
   body{
     align-items: flex-start;
@@ -504,12 +515,7 @@ main{
   .currentDate{
     top: 11.5%;
     padding-top: 5px;
-  }
-  .line-image img{
-    width: 15rem;
-  }
-  #header{
-    padding: 30px 0px 20px 0px; 
+    margin-left: .5rem;
   }
   .calender-img{
     width: 18px;
@@ -540,10 +546,7 @@ main{
     height: 14px;
   }
   #punchHolesContainer{
-    top: -8px;
-  }
-  .line-image img{
-    width: 15rem;
+    top: -6px;
   }
   .activeTask_Container .taskCompleteCheckBox::before{
     top: 43%;
@@ -568,6 +571,9 @@ main{
   }
   .recycle-tasksContainer{
     min-width: 250px;
+  }
+  #header{
+    padding: 10rem 15px 2.5rem 15px;
   }
 }
 

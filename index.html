@@ -19,39 +19,43 @@
     
     <main>
 
-      <aside class="trash_icon" data-deletedTaskIcon>
+      <aside class="trash_icon" data-trashBinIcon>
         <img src="img/recycling-bin (1).png" alt="">
       </aside>
       <section id="main-body">
 
         <section id="header">
+
+          <div class="line-image">
+            <img src="img/line.png" alt="">
+          </div>
+
           <h1>TO DO LIST</h1>
+
+          <section class="currentDate">
+            <p ><span class="calender-img"></span> <span data-currentDate class="date-text"></span></p>
+          </section>
+
+          <section id="punchHolesContainer">
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+            <span class="punchHole"></span>
+          </section>
+
         </section>
 
-        <section class="currentDate">
-          <p ><span class="calender-img"></span> <span data-currentDate class="date-text"></span></p>
-        </section>
-
-        <div class="line-image">
-          <img src="img/line.png" alt="">
-        </div>
-
-        <section id="punchHolesContainer">
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-          <span class="punchHole"></span>
-        </section>
+       
 
         <section >
           <ul id="taskList" data-acticeTaskContainer class="activeTask_Container">
@@ -74,7 +78,7 @@
         </aside>
 
         <aside >
-          <div class="recycle-wrapper">
+          <div class="recycle-wrapper" data-recycleWrapper>
             <img src="img/push-pin.png" alt="push-pin" class="pushPin_img">
             <div class="recycle-tasksContainer">
               <div class="recycleTask_heading">

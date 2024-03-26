@@ -4,15 +4,13 @@ import { currentDate } from './modules/generateCurrentDate.js';
 import { manageStorage} from './modules/localStorageManager.js';
 import { populateAllTaskSet,removeFromAllTaskSet } from './modules/updateAllTaskSet.js';
 import { generateAndDisplayTasksUi } from './modules/generateAndDisplaytasks.js';
-import { DOMmodifier} from './modules/changeDOM.js';
-import { addTaskBtn,taskInputfield,addTaskBtnClass,deleteTaskBtnClass,recycleTaskBtnClass,
-  activeTaskClass,restoreTaskBtnClass,completeTaskBtnClass,taskCompleted,restorableTaskClass,displayDate} from './modules/variables.js';
+import { DOMElement} from './modules/DOMElements.js';
 
 
 
 
 
-/*   Refer to variable module if the use of any variable in main seems confusing */
+/*   Refer to DOMElements if the use of any variable name in main seems confusing */
 
 
 const Main = (function(){
@@ -45,8 +43,8 @@ const Main = (function(){
 
   // update all the nodes list to all include the newly added html elements
   function updateAllNodesList(){
-    allActiveTasks = document.querySelectorAll(`.${activeTaskClass}`);
-    allRestoreableTasks = document.querySelectorAll(`.${restorableTaskClass}`)
+    allActiveTasks = document.querySelectorAll(`.${DOMElement.activeTaskClass}`);
+    allRestoreableTasks = document.querySelectorAll(`.${DOMElement.restorableTaskClass}`)
   }
 
   function addEventListenerToallAvailableTasks(){
@@ -71,19 +69,19 @@ const Main = (function(){
 
     switch(elementClass){
 
-      case addTaskBtnClass:
+      case DOMElement.addTaskBtnClass:
         handleNewTask();
         break;
-      case recycleTaskBtnClass:
+      case DOMElement.recycleTaskBtnClass:
         modifyTaskStatus(parentElement);
         break;
-      case completeTaskBtnClass:
+      case DOMElement.completeTaskBtnClass:
         handleCompleteTask(parentElement);
         break;
-      case restoreTaskBtnClass:
+      case DOMElement.restoreTaskBtnClass:
         modifyTaskStatus(parentElement);
         break;
-      case deleteTaskBtnClass:
+      case DOMElement.deleteTaskBtnClass:
         handleDeleteTask(parentElement);
         break;
       default:
@@ -94,14 +92,14 @@ const Main = (function(){
 
   // when user creates a new task
   function handleNewTask(){
-    let taskText = taskInputfield.value.trim();
+    let taskText = DOMElement.taskInputfield.value.trim();
     if(taskText.length <= 0) return;
     
     newTaskNumber++;
 
     const date = currentDate();
 
-    let taskObject = createObjectForActiveTask(newTaskNumber,taskText,date,[activeTaskClass]);
+    let taskObject = createObjectForActiveTask(newTaskNumber,taskText,date,[DOMElement.activeTaskClass]);
 
     populateAllTaskSet(allTasksList,newTaskNumber);
 
@@ -115,7 +113,7 @@ const Main = (function(){
 
     addEventListener(newTask);
 
-    DOMmodifier.removeTextFromInputELement(taskInputfield);
+    DOMElement.removeTextFromInputELement(DOMElement.taskInputfield);
     
   }
 
@@ -127,15 +125,15 @@ const Main = (function(){
     let taskMainClasses = [];
     let modifiedObject;
 
-    if(task.classList.contains(taskCompleted)) taskMainClasses.push(taskCompleted);
+    if(task.classList.contains(DOMElement.taskCompleted)) taskMainClasses.push(DOMElement.taskCompleted);
 
-    DOMmodifier.removeElementFromDOM(task.parentElement,task);
+    DOMElement.removeElementFromDOM(task.parentElement,task);
 
-    if(task.classList.contains(activeTaskClass)){
-      taskMainClasses.push(restorableTaskClass)
+    if(task.classList.contains(DOMElement.activeTaskClass)){
+      taskMainClasses.push(DOMElement.restorableTaskClass)
       modifiedObject = changeTaskObjectToRecyle(taskNumber,taskText,taskDate,taskMainClasses);
     }else{
-      taskMainClasses.push(activeTaskClass);
+      taskMainClasses.push(DOMElement.activeTaskClass);
       modifiedObject = createObjectForActiveTask(taskNumber,taskText,taskDate,taskMainClasses);
     }
 
@@ -149,9 +147,9 @@ const Main = (function(){
   function handleCompleteTask(task){
     let taskNumber = task.getAttribute('data-taskNumber');
     let taskObject = manageStorage.getTaskObject(taskNumber)
-    addClassTOTaskObject(taskObject,taskCompleted);
+    addClassTOTaskObject(taskObject,DOMElement.taskCompleted);
     manageStorage.setTaskObject(taskObject);
-    DOMmodifier.addClassToTaskElementDOM(task,taskCompleted);
+    DOMElement.addClassToTaskElementDOM(task,DOMElement.taskCompleted);
   }
 
   // when user permanently deletes the task
@@ -161,21 +159,21 @@ const Main = (function(){
     removeFromAllTaskSet(allTasksList,objectKey);
     console.log(allTasksList)
     manageStorage.setTaskList(allTasksList);
-    DOMmodifier.removeElementFromDOM(task.parentElement,task);
+    DOMElement.removeElementFromDOM(task.parentElement,task);
   }
 
   // display the task creation date on the taskSheet
   function displayTaskDate(task){
-    if(task === addTaskBtn) return;
+    if(task === DOMElement.addTaskBtn) return;
 
     let taskDate =  task.getAttribute('data-date');
-    DOMmodifier.addContentToElement(displayDate,taskDate);
+    DOMElement.addContentToElement(DOMElement.displayDate,taskDate);
   }
 
   // hide the task when user is not hovering over the task
   function hideTaskDate(task){
-    if(task === addTaskBtn) return;
-    DOMmodifier.removeContentFromELement(displayDate);
+    if(task === DOMElement.addTaskBtn) return;
+    DOMElement.removeContentFromELement(DOMElement.displayDate);
   }
 
 
@@ -194,7 +192,7 @@ const Main = (function(){
 document.addEventListener('DOMContentLoaded',(e)=>{
   Main.updateTaskListFromStorage();
   Main.renderTasksFromStorage();
-  Main.addEventListener(addTaskBtn);
+  Main.addEventListener(DOMElement.addTaskBtn);
   Main.updateAllNodesList();
   Main.addEventListenerToallAvailableTasks();
 })
@@ -202,3 +200,8 @@ document.addEventListener('DOMContentLoaded',(e)=>{
 
 
 
+DOMElement.recycleBinIcon.addEventListener('click', (e)=>{
+  
+  DOMElement.recyleConWrapper.classList.toggle('showRecycleBin')
+  console.log('click')
+})
