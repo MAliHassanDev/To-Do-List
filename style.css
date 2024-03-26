@@ -36,7 +36,7 @@ main{
   display: flex;
   justify-content: center;
   gap: 12%;
-  margin: 0 4rem;
+  margin: 0 auto;
   max-width: 1400px;
   height: 80rem;
   margin: 0 auto;
@@ -152,7 +152,7 @@ main{
   width: 76%;
   padding-top: 25px;
 }
-.activeTask_Container  .activeTask{
+.activeTask_Container  li{
   list-style:none;
   border-bottom: 2px dotted #ABA889;
   font-size: 2.3rem;
@@ -278,9 +278,22 @@ main{
   justify-content: space-between;
   padding-bottom: 6rem;
 }
+
+
+
+/* deleted task section  */
 .recycle-wrapper{
   position: relative;
   
+}
+.trash_icon{
+  position: absolute;
+  bottom: -20rem;
+  right: 5px;
+  z-index: 200;
+}
+.trash_icon img{
+  width: 12rem;
 }
 .recycle-tasksContainer{
   max-width: 38rem;
@@ -341,7 +354,7 @@ main{
 .recycleTask_Container .restoreableTask .restoreTaskBtn{
   display: inline-block;
   position: absolute;
-  right: 27px;
+  right: 2.7rem;
   top: 3px;
   height: 2.4rem;
   width: 2.4rem;
@@ -350,6 +363,7 @@ main{
   background-size: contain;
   transition: transform 0.25s ease;
 }
+
 
 .restoreTaskBtn:hover{
   transform: scale(1.1);
@@ -455,14 +469,20 @@ main{
 @media screen and (max-width: 1000px){
   main{
     flex-direction: column-reverse;
-    gap: 0;
-    margin: 5rem auto 0rem auto;
-    height: 100rem;
+    gap: 5%;
+    margin: 8rem auto 0rem auto;
+    height: 107rem;
+  }
+  .recycle-wrapper{
+    position: absolute;
+    bottom: 2rem;
+    z-index: 100;
+    left: 28%;
+
   }
   .recycle-tasksContainer{
-    position: absolute;
-    left: -30rem;
-    display: none;
+    min-width: 296px;
+    transform: rotate(0deg);
   }
   body{
     align-items: flex-start;
@@ -475,6 +495,32 @@ main{
   }.plant-img{
     display: none;
   }
+  #punchHolesContainer{
+    top: -7px;
+  }
+  .punchHole{
+    box-shadow: inset .4rem 0px 0px 0px rgba(0, 0, 0, 0.247);
+  }
+  .currentDate{
+    top: 11.5%;
+    padding-top: 5px;
+  }
+  .line-image img{
+    width: 15rem;
+  }
+  #header{
+    padding: 30px 0px 20px 0px; 
+  }
+  .calender-img{
+    width: 18px;
+    height: 18px;
+  }
+  .activeTask_Container{
+    padding-top: 10px;
+  }
+  .activeTask_Container li{
+    padding-left: 8px;
+  }
 }
 
 @media screen and (max-width: 500px){
@@ -483,9 +529,6 @@ main{
   }
   .rose-img img{
     width: 13rem;
-  }
-  #header{
-    padding: 30px 0px 20px 0px; 
   }
   .currentDate{
     top: 13.5%;
@@ -507,17 +550,24 @@ main{
     left: 50%;
     transform: translate(-50%,-50%)
   }
-  .punchHole{
-    box-shadow: inset .4rem 0px 0px 0px rgba(0, 0, 0, 0.247);
-  }
+ 
   .activeTask_Container{
     padding-top: 0px;
+  }
+  .activeTask_Container li{
+    padding-left: 5px;
   }
   .date-text{
     font-size: 10px;
   }
+  .currentDate{
+    padding-top: 1px;
+  }
   .activeTask_Container .moveTaskTORecycleBin{
-    bottom: 5px;
+    bottom: 5.2px;
+  }
+  .recycle-tasksContainer{
+    min-width: 250px;
   }
 }
 
@@ -535,12 +585,16 @@ main{
   .calender-img{
     width: 14px;
     height: 14px;
-    bottom: 5px;
+    bottom: 3px;
   }
   .currentDate{
     width: 12.1rem;
+    padding-top: 3px;
   }
   .date-text{
     font-size: 9px;
+  }
+  .recycle-tasksContainer{
+    min-width: 227px;
   }
 }
