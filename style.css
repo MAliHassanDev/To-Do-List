@@ -29,6 +29,7 @@ body{
 }
 
 
+
 /* main body of the task list */
 
 main{
@@ -59,6 +60,11 @@ main{
 #main-body::-webkit-scrollbar{
   width: 0px;
 }
+
+
+
+/* header of the taskList */
+
 #header{
   position: sticky;
   width: 100%;
@@ -81,6 +87,9 @@ main{
   color: #4f5042;
 }
 
+
+
+/* punchholes at the top of the task list page */
 #punchHolesContainer{
   position: absolute;
   top:0;
@@ -111,6 +120,10 @@ main{
   background-color: #65B8D8;
   box-shadow: inset .4rem 0px 0px 0px rgba(0, 0, 0, 0.225);
 }
+
+
+
+/* line image at the top of the taskList */
 .line-image{
   margin-right: .5rem;
 }
@@ -121,6 +134,7 @@ main{
   opacity: 0.6;
 }
 
+/* Currant date section  */
 .currentDate{
   font-family: abode;
   font-size: 2.3rem;
@@ -140,9 +154,13 @@ main{
 }
 .date-text{
   font-size:2rem;
-  font-family: "Kalam", cursive;
+  font-family: "Kalam",Arial;
   padding-left: 3.5rem;
 }
+
+
+
+
 .activeTask_Container{
   margin-left: 9.3rem;
   width: 76%;
@@ -162,9 +180,6 @@ main{
   width: 100%;
   padding-right: 20px;
 }
-
-
-
 
 .activeTask_Container .taskCompleteCheckBox{
   position: absolute;
@@ -212,6 +227,16 @@ main{
 }
 
 /* Add Task Section */
+
+
+.manage-tasks{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 6rem;
+}
+
+
 #addTask{
   background-color: rgb(241, 241, 241);
   height: fit-content;
@@ -243,7 +268,7 @@ main{
   background-color: #C3A27F;
   border: none;
   font-size: 2.6rem;
-  padding:0rem 2.7rem;
+  padding:0rem 3.4rem 0rem 2.7rem;
 
 }
 .addTaskInput input:focus{
@@ -267,13 +292,6 @@ main{
  background-color: rgb(25, 43, 8);
 }
 
-
-.manage-tasks{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 6rem;
-}
 
 
 
@@ -531,14 +549,21 @@ main{
   .activeTask_Container li{
     padding-left: 8px;
   }
+  .addTaskInput input{
+    padding:0rem 5rem 0rem 2.7rem;
+  }
 }
 
 @media screen and (max-width: 500px){
   html{
     font-size: 37%;
   }
-  .rose-img img{
-    width: 13rem;
+  main{
+    justify-content: flex-end;
+    height: 75%;
+  }
+  #header{
+    padding: 10rem 15px 4rem 15px;
   }
   .currentDate{
     top: 13.5%;
@@ -552,17 +577,14 @@ main{
   #punchHolesContainer{
     top: -7px;
   }
-  .activeTask_Container .taskCompleteCheckBox::before{
-    top: 43%;
-    left: 50%;
-    transform: translate(-50%,-50%)
-  }
- 
   .activeTask_Container{
     padding-top: 0px;
   }
   .activeTask_Container li{
     padding-left: 5px;
+  }
+  .addTaskInput input{
+    padding:0rem 6rem 0rem 2.7rem;
   }
   .date-text{
     font-size: 10px;
@@ -573,15 +595,17 @@ main{
   .activeTask_Container .moveTaskTORecycleBin{
     bottom: 5.2px;
   }
+ 
+  .activeTask_Container .taskCompleteCheckBox::before{
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+  }
   .recycle-tasksContainer{
     min-width: 250px;
   }
-  #header{
-    padding: 10rem 15px 4rem 15px;
-  }
-  main{
-    justify-content: flex-end;
-    height: 70%;
+  .rose-img img{
+    width: 13rem;
   }
   
 }
