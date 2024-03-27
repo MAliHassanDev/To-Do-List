@@ -284,7 +284,7 @@ main{
 }
 .trash_icon{
   position: absolute;
-  bottom: -15rem;
+  bottom: -20rem;
   right: 6px;
   z-index: 200;
   cursor: pointer;
@@ -449,6 +449,9 @@ main{
    main{
     gap: 8%;
   }
+  #punchHolesContainer{
+    top: -4px;
+  }
 }
 
 @media screen and (max-width: 1200px){
@@ -470,15 +473,13 @@ main{
     flex-direction: column-reverse;
     gap: 0%;
     margin: 6rem auto 0rem auto;
+    height: 80%;
   }
   .line-image img{
     max-width: 3rem;
   }
   .trash_icon{
     display: block;
-  }
-  #main-body{
-    height: 80%;
   }
   .recycle-wrapper{
     position: absolute;
@@ -510,7 +511,7 @@ main{
     display: none;
   }
   #punchHolesContainer{
-    top: -8px;
+    top: -5px;
   }
   .punchHole{
     box-shadow: inset .4rem 0px 0px 0px rgba(0, 0, 0, 0.247);
@@ -549,7 +550,7 @@ main{
     height: 14px;
   }
   #punchHolesContainer{
-    top: -8px;
+    top: -7px;
   }
   .activeTask_Container .taskCompleteCheckBox::before{
     top: 43%;
@@ -572,23 +573,15 @@ main{
   .activeTask_Container .moveTaskTORecycleBin{
     bottom: 5.2px;
   }
-  .trash_icon{
-    bottom: -25px;
-  }
-  .recycle-wrapper{
-    bottom: 15rem;
-  }
   .recycle-tasksContainer{
     min-width: 250px;
   }
   #header{
     padding: 10rem 15px 4rem 15px;
   }
-  #main-body{
-    height: 70%;
-  }
   main{
     justify-content: flex-end;
+    height: 70%;
   }
   
 }
