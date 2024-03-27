@@ -53,6 +53,7 @@ main{
   overflow-x: hidden;
   z-index: 10;
   position: relative;
+  overflow: hidden;
   
 }
 #main-body::-webkit-scrollbar{
@@ -161,10 +162,10 @@ main{
   width: 100%;
   padding-right: 20px;
 }
-/* .activeTask_Container li::before{
-  content: '4.';
-  margin-right: 15px;
-} */
+
+
+
+
 .activeTask_Container .taskCompleteCheckBox{
   position: absolute;
   left: -4.5rem;
@@ -468,13 +469,16 @@ main{
   main{
     flex-direction: column-reverse;
     gap: 0%;
-    margin: 5rem auto 0rem auto;
+    margin: 6rem auto 0rem auto;
   }
   .line-image img{
     max-width: 3rem;
   }
   .trash_icon{
     display: block;
+  }
+  #main-body{
+    height: 80%;
   }
   .recycle-wrapper{
     position: absolute;
@@ -568,12 +572,25 @@ main{
   .activeTask_Container .moveTaskTORecycleBin{
     bottom: 5.2px;
   }
+  .trash_icon{
+    bottom: -25px;
+  }
+  .recycle-wrapper{
+    bottom: 15rem;
+  }
   .recycle-tasksContainer{
     min-width: 250px;
   }
   #header{
     padding: 10rem 15px 4rem 15px;
   }
+  #main-body{
+    height: 70%;
+  }
+  main{
+    justify-content: flex-end;
+  }
+  
 }
 
 
