@@ -11,8 +11,6 @@ import { DOMElement} from './modules/DOMElements.js';
 
 
 /*   Refer to DOMElements if the use of any variable name in main seems confusing */
-
-
 const Main = (function(){
   let allTasksList = new Set();
   let newTaskNumber = 0;
